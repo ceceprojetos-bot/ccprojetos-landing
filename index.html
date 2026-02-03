@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CC Projetos - Regularização de Imóveis em Araras SP | Carlos César Costa</title>
+    <meta name="description" content="Especialista em regularização de imóveis em Araras SP. Mais de 40 anos de experiência. Estudo de Viabilidade Técnica, Aprovação de Projeto, Habite-se, Desdobro e Projeto do Corpo de Bombeiros. Orçamento gratuito!">
+    <meta name="keywords" content="regularização de imóveis, Araras, São Paulo, Carlos César Costa, habite-se, aprovação de projeto, desdobro de lotes, corpo de bombeiros">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="CC Projetos - Regularização de Imóveis em Araras SP">
+    <meta property="og:description" content="Especialista em regularização de imóveis com mais de 40 anos de experiência. Orçamento gratuito!">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ccprojetos.com.br">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E5AA8',
+                        secondary: '#2E7D32',
+                        accent: '#FF6F00',
+                        dark: '#263238',
+                        light: '#F8F9FA'
+                    },
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        html { scroll-behavior: smooth; }
+        .gradient-bg { background: linear-gradient(135deg, #1E5AA8 0%, #1565C0 100%); }
+        .gradient-hero { background: linear-gradient(135deg, #1E5AA8 0%, #0D47A1 50%, #1E5AA8 100%); }
+        .text-gradient { background: linear-gradient(135deg, #1E5AA8, #2E7D32); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        .btn-pulse { animation: pulse 2s infinite; }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .floating { animation: floating 3s ease-in-out infinite; }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body class="font-sans text-dark bg-light">
+    
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-md shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <a href="#" class="flex items-center gap-3">
+                    <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center">
+                        <i class="fas fa-building text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-display font-bold text-xl text-primary">CC Projetos</h1>
+                        <p class="text-xs text-gray-500">Regularização de Imóveis</p>
+                    </div>
+                </a>
+                
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#servicos" class="text-dark hover:text-primary font-medium transition">Serviços</a>
+                    <a href="#sobre" class="text-dark hover:text-primary font-medium transition">Sobre</a>
+                    <a href="#depoimentos" class="text-dark hover:text-primary font-medium transition">Depoimentos</a>
+                    <a href="#contato" class="text-dark hover:text-primary font-medium transition">Contato</a>
+                </nav>
+                
+                <a href="https://wa.me/5519997959587?text=Olá!%20Vi%20o%20anúncio%20e%20quero%20regularizar%20meu%20imóvel." 
+                   target="_blank"
+                   class="hidden md:flex items-center gap-2 bg-accent hover:bg-orange-600 text-white px-6 py-3 rounded-full font-semibold transition btn-pulse">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Fale Conosco</span>
+                </a>
+                
+                <button class="md:hidden text-2xl text-primary" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-4 space-y-3">
+                <a href="#servicos" class="block py-2 text-dark hover:text-primary">Serviços</a>
+                <a href="#sobre" class="block py-2 text-dark hover:text-primary">Sobre</a>
+                <a href="#depoimentos" class="block py-2 text-dark hover:text-primary">Depoimentos</a>
+                <a href="#contato" class="block py-2 text-dark hover:text-primary">Contato</a>
+                <a href="https://wa.me/5519997959587" target="_blank" class="flex items-center gap-2 bg-accent text-white px-4 py-3 rounded-lg justify-center">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Fale no WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-hero min-h-screen flex items-center pt-20 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 py-16 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full mb-6">
+                        <i class="fas fa-star text-accent"></i>
+                        <span class="text-sm font-medium">Mais de 40 anos de experiência</span>
+                    </div>
+                    
+                    <h2 class="font-display text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                        Regularize seu Imóvel com <span class="text-accent">Especialistas</span>
+                    </h2>
+                    
+                    <p class="text-xl text-white/90 mb-8 leading-relaxed">
+                        Sou Carlos César Costa, técnico em Edificações habilitado pelo CRT/SP. 
+                        Transformo a burocracia da regularização em uma experiência simples e sem complicações.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                        <a href="https://wa.me/5519997959587?text=Olá!%20Quero%20solicitar%20um%20orçamento%20gratuito%20para%20regularização%20de%20imóvel." 
+                           target="_blank"
+                           class="flex items-center justify-center gap-3 bg-accent hover:bg-orange-600 text-white px-8 py-4 rounded-full font-bold text-lg transition btn-pulse">
+                            <i class="fab fa-whatsapp text-2xl"></i>
+                            <span>Solicitar Orçamento Grátis</span>
+                        </a>
+                        <a href="#servicos" 
+                           class="flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border-2 border-white/30 px-8 py-4 rounded-full font-bold text-lg transition">
+                            <span>Ver Serviços</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="flex items-center gap-6 text-white/80">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-secondary"></i>
+                            <span class="text-sm">Atendimento em Araras/SP</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-check-circle text-secondary"></i>
+                            <span class="text-sm">Orçamento Sem Compromisso</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:block" data-aos="fade-left">
+                    <div class="relative">
+                        <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-white rounded-2xl p-6 text-center floating" style="animation-delay: 0s;">
+                                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                                        <i class="fas fa-home text-primary text-2xl"></i>
+                                    </div>
+                                    <p class="font-bold text-3xl text-primary">500+</p>
+                                    <p class="text-sm text-gray-600">Imóveis Regularizados</p>
+                                </div>
+                                <div class="bg-white rounded-2xl p-6 text-center floating" style="animation-delay: 0.5s;">
+                                    <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                                        <i class="fas fa-award text-secondary text-2xl"></i>
+                                    </div>
+                                    <p class="font-bold text-3xl text-secondary">40+</p>
+                                    <p class="text-sm text-gray-600">Anos de Experiência</p>
+                                </div>
+                                <div class="bg-white rounded-2xl p-6 text-center floating" style="animation-delay: 1s;">
+                                    <div class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                                        <i class="fas fa-smile text-accent text-2xl"></i>
+                                    </div>
+                                    <p class="font-bold text-3xl text-accent">98%</p>
+                                    <p class="text-sm text-gray-600">Clientes Satisfeitos</p>
+                                </div>
+                                <div class="bg-white rounded-2xl p-6 text-center floating" style="animation-delay: 1.5s;">
+                                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                                        <i class="fas fa-certificate text-primary text-2xl"></i>
+                                    </div>
+                                    <p class="font-bold text-3xl text-primary">CRT/SP</p>
+                                    <p class="text-sm text-gray-600">Habilitado</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 animate-bounce">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Urgency Banner -->
+    <section class="bg-accent py-4">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-white">
+                <i class="fas fa-exclamation-circle text-2xl"></i>
+                <p class="text-center font-semibold">
+                    ⚠️ Imóvel irregular pode gerar multas, impedir vendas e complicar heranças. 
+                    <span class="underline">Regularize agora e evite problemas futuros!</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicos" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">NOSSOS SERVIÇOS</span>
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-dark mb-4">Soluções Completas para seu Imóvel</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Oferecemos todos os serviços necessários para regularizar seu imóvel de forma rápida e segura</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- EVT -->
+                <div class="bg-light rounded-2xl p-8 card-hover" data-aos="fade-up" data-aos-delay="0">
+                    <div class="service-icon bg-primary/10 text-primary">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-dark mb-3">Estudo de Viabilidade Técnica</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">Avaliação completa da possibilidade de regularização do seu imóvel conforme normas legais e condições técnicas.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center gap-2 text-sm text-gray-600">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>Análise documental</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-gray-600">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>Vistoria técnica</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-gray-600">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>Relatório detalhado</span>
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/5519997959587?text=Olá!%20Tenho%20interesse%20no%20Estudo%20de%20Viabilidade%20Técnica." 
+                       target="_blank"
+                       class="flex items-center gap-2 text-primary font-semibold hover:gap-4 transition">
+                        <span>Saiba Mais</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <!-- Aprovação de Projeto -->
+                <div class="bg-light rounded-2xl p-8 card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon bg-secondary/10 text-secondary">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-dark mb-3">Aprovação de Projeto</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">Aprovação de Projeto de Regularização na Prefeitura garantindo que seu imóvel esteja conforme as normas municipais.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center gap-2 text-sm text-gray-600">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>Projeto arquitetônico</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-gray-600">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>Documentação completa</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-gray-600">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>Acompanhamento no protocolo</span>
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/5519997959587?text=Olá!%20Tenho%20interesse%20na%20Aprovação%20de%20Projeto." 
+                       target="_blank"
+                       class="flex items-center gap-2 text-primary font-semibold hover:gap-4 transition">
+                        <span>Saiba Mais</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <!-- Habite-se -->
+                <div class="bg-light rounded-2xl p-8 card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon bg-accent/10 text-accent">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-dark mb-3">Habite-se / Certidão</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">Emissão do Habite-se ou Certidão de Regularização que conclui a legalização do imóvel, permitindo seu uso e ocupação.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center gap-2 text-sm text-gray-600">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>Documentação final</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-gray-600">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>Vistoria de conclusão</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-gray-600">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>Emissão do documento</span>
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/5519997959587?text=Olá!%20Tenho%20interesse%20no%20Habite-se." 
+                       target="_blank"
+                       class="flex items-center gap-2 text-primary font-semibold hover:gap-4 transition">
+                        <span>Saiba Mais</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <!-- Desdobro -->
+                <div class="bg-light rounded-2xl p-8 card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon bg-primary/10 text-primary">
+                        <i class="fas fa-th-large"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-dark mb-3">Desdobro de Lotes</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">Divisão de terrenos em parcelas menores, possibilitando vendas, construções ou regularização de imóveis.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center gap-2 text-sm text-gray-600">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>Estudo de zoneamento</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-gray-600">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>Projeto de loteamento</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-gray-600">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>Aprovação municipal</span>
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/5519997959587?text=Olá!%20Tenho%20interesse%20em%20Desdobro%20de%20Lotes." 
+                       target="_blank"
+                       class="flex items-center gap-2 text-primary font-semibold hover:gap-4 transition">
+                        <span>Saiba Mais</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <!-- Corpo de Bombeiros -->
+                <div class="bg-light rounded-2xl p-8 card-hover" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon bg-secondary/10 text-secondary">
+                        <i class="fas fa-fire-extinguisher"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-dark mb-3">Projeto Corpo de Bombeiros</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">Assegura a conformidade com normas de segurança contra incêndios em edificações e estabelecimentos.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center gap-2 text-sm text-gray-600">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>Projeto de prevenção</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-gray-600">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>AVCB/CLCB</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-gray-600">
+                            <i class="fas fa-check text-secondary"></i>
+                            <span>Renovações</span>
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/5519997959587?text=Olá!%20Tenho%20interesse%20no%20Projeto%20do%20Corpo%20de%20Bombeiros." 
+                       target="_blank"
+                       class="flex items-center gap-2 text-primary font-semibold hover:gap-4 transition">
+                        <span>Saiba Mais</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <!-- Consultoria -->
+                <div class="bg-gradient-to-br from-primary to-blue-600 rounded-2xl p-8 card-hover text-white" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-icon bg-white/20 text-white">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold mb-3">Consultoria Personalizada</h3>
+                    <p class="text-white/90 mb-4 leading-relaxed">Orientação completa sobre o processo de regularização do seu imóvel, esclarecendo todas as dúvidas.</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center gap-2 text-sm text-white/80">
+                            <i class="fas fa-check text-white"></i>
+                            <span>Análise da situação</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-white/80">
+                            <i class="fas fa-check text-white"></i>
+                            <span>Planejamento estratégico</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-white/80">
+                            <i class="fas fa-check text-white"></i>
+                            <span>Orçamento detalhado</span>
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/5519997959587?text=Olá!%20Gostaria%20de%20uma%20consultoria%20personalizada." 
+                       target="_blank"
+                       class="flex items-center gap-2 text-white font-semibold hover:gap-4 transition">
+                        <span>Falar com Especialista</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <span class="inline-block bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-semibold mb-4">POR QUE NOS ESCOLHER</span>
+                    <h2 class="font-display text-4xl lg:text-5xl font-bold text-dark mb-6">Imóvel Regularizado é Sinônimo de <span class="text-gradient">Segurança e Valorização</span></h2>
+                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">Um imóvel regularizado pode ser vendido, incluído em inventários familiares e garante tranquilidade aos proprietários. Não deixe para depois!</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center shrink-0">
+                                <i class="fas fa-shield-alt text-secondary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display text-xl font-bold text-dark mb-1">Segurança Jurídica</h4>
+                                <p class="text-gray-600">Proteja seu patrimônio contra problemas legais e burocráticos futuros.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center shrink-0">
+                                <i class="fas fa-chart-line text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display text-xl font-bold text-dark mb-1">Valorização do Imóvel</h4>
+                                <p class="text-gray-600">Imóveis regularizados podem valer até 30% a mais no mercado.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center shrink-0">
+                                <i class="fas fa-handshake text-accent text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display text-xl font-bold text-dark mb-1">Facilidade na Venda</h4>
+                                <p class="text-gray-600">Venda seu imóvel sem burocracias ou impedimentos legais.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center shrink-0">
+                                <i class="fas fa-users text-secondary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display text-xl font-bold text-dark mb-1">Herança Simplificada</h4>
+                                <p class="text-gray-600">Facilite o processo de inventário e transmissão para herdeiros.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative" data-aos="fade-left">
+                    <div class="bg-white rounded-3xl shadow-2xl p-8">
+                        <div class="text-center mb-6">
+                            <div class="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-gift text-accent text-3xl"></i>
+                            </div>
+                            <h3 class="font-display text-2xl font-bold text-dark">Orçamento Gratuito!</h3>
+                            <p class="text-gray-600">Preencha o formulário e receba uma proposta personalizada</p>
+                        </div>
+                        
+                        <form class="space-y-4" onsubmit="handleFormSubmit(event)">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Nome Completo</label>
+                                <input type="text" required 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition"
+                                       placeholder="Seu nome">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">WhatsApp</label>
+                                <input type="tel" required 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition"
+                                       placeholder="(19) 99999-9999">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Tipo de Serviço</label>
+                                <select required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition">
+                                    <option value="">Selecione um serviço</option>
+                                    <option value="evt">Estudo de Viabilidade Técnica</option>
+                                    <option value="aprovacao">Aprovação de Projeto</option>
+                                    <option value="habitese">Habite-se / Certidão</option>
+                                    <option value="desdobro">Desdobro de Lotes</option>
+                                    <option value="bombeiros">Projeto Corpo de Bombeiros</option>
+                                    <option value="consultoria">Consultoria</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Mensagem (opcional)</label>
+                                <textarea rows="3" 
+                                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition"
+                                          placeholder="Conte um pouco sobre seu imóvel..."></textarea>
+                            </div>
+                            <button type="submit" 
+                                    class="w-full bg-accent hover:bg-orange-600 text-white font-bold py-4 rounded-lg transition btn-pulse flex items-center justify-center gap-2">
+                                <i class="fas fa-paper-plane"></i>
+                                <span>Solicitar Orçamento</span>
+                            </button>
+                        </form>
+                        
+                        <p class="text-center text-sm text-gray-500 mt-4">
+                            <i class="fas fa-lock mr-1"></i>
+                            Seus dados estão seguros e não serão compartilhados
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1" data-aos="fade-right">
+                    <div class="relative">
+                        <div class="bg-primary/10 rounded-3xl p-8 absolute -top-4 -left-4 w-full h-full"></div>
+                        <div class="bg-white rounded-3xl shadow-xl p-8 relative">
+                            <div class="w-32 h-32 bg-gradient-to-br from-primary to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <i class="fas fa-user-tie text-white text-5xl"></i>
+                            </div>
+                            <div class="text-center">
+                                <h3 class="font-display text-2xl font-bold text-dark mb-2">Carlos César Costa</h3>
+                                <p class="text-primary font-semibold mb-4">Técnico em Edificações - CRT/SP</p>
+                                <div class="flex justify-center gap-4 mb-4">
+                                    <a href="https://wa.me/5519997959587" target="_blank" class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white hover:scale-110 transition">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </a>
+                                    <a href="https://www.instagram.com/carloscesarcosta_/" target="_blank" class="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white hover:scale-110 transition">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-1 lg:order-2" data-aos="fade-left">
+                    <span class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">SOBRE MIM</span>
+                    <h2 class="font-display text-4xl lg:text-5xl font-bold text-dark mb-6">Mais de 40 Anos Transformando Desafios em <span class="text-gradient">Soluções</span></h2>
+                    
+                    <div class="space-y-4 text-gray-600 leading-relaxed">
+                        <p>Sou Carlos César Costa, técnico em Edificações habilitado pelo CRT/SP e especialista em Regularização de Imóveis. Com mais de 40 anos de experiência, minha missão é descomplicar a regularização de imóveis, oferecendo um serviço de orientação clara e soluções eficientes.</p>
+                        
+                        <p>Com foco em facilitar o processo de legalização, trabalho para assegurar que cada imóvel esteja regularizado, valorizado e pronto para ser vendido ou incluído em inventários familiares.</p>
+                        
+                        <p>Acredito que um imóvel regularizado é sinônimo de segurança, tranquilidade e novas oportunidades para seus donos. Meu compromisso é oferecer um atendimento personalizado e de excelência, tornando a regularização acessível para todos.</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-4 mt-8">
+                        <div class="text-center">
+                            <p class="font-display text-3xl font-bold text-primary">500+</p>
+                            <p class="text-sm text-gray-600">Imóveis Regularizados</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="font-display text-3xl font-bold text-secondary">40+</p>
+                            <p class="text-sm text-gray-600">Anos de Experiência</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="font-display text-3xl font-bold text-accent">98%</p>
+                            <p class="text-sm text-gray-600">Clientes Satisfeitos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="depoimentos" class="py-20 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-semibold mb-4">DEPOIMENTOS</span>
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-dark mb-4">O Que Nossos Clientes Dizem</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">A satisfação dos nossos clientes é o nosso maior orgulho</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg" data-aos="fade-up" data-aos-delay="0">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="fas fa-star text-accent"></i>
+                        <i class="fas fa-star text-accent"></i>
+                        <i class="fas fa-star text-accent"></i>
+                        <i class="fas fa-star text-accent"></i>
+                        <i class="fas fa-star text-accent"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">"O Carlos foi extremamente profissional e atencioso. Conseguiu regularizar meu imóvel em tempo recorde. Recomendo demais!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-primary"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-dark">Maria Silva</p>
+                            <p class="text-sm text-gray-500">Araras, SP</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="fas fa-star text-accent"></i>
+                        <i class="fas fa-star text-accent"></i>
+                        <i class="fas fa-star text-accent"></i>
+                        <i class="fas fa-star text-accent"></i>
+                        <i class="fas fa-star text-accent"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">"Serviço excelente! O processo que parecia complicado foi descomplicado pelo Carlos. Muito obrigado pela dedicação."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-secondary"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-dark">João Pereira</p>
+                            <p class="text-sm text-gray-500">Araras, SP</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center gap-1 mb-4">
+                        <i class="fas fa-star text-accent"></i>
+                        <i class="fas fa-star text-accent"></i>
+                        <i class="fas fa-star text-accent"></i>
+                        <i class="fas fa-star text-accent"></i>
+                        <i class="fas fa-star text-accent"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed">"Profissionalismo e competência definem o trabalho da CC Projetos. Meu habite-se foi emitido sem nenhuma dor de cabeça."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-accent"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-dark">Ana Santos</p>
+                            <p class="text-sm text-gray-500">Araras, SP</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 gradient-bg">
+        <div class="container mx-auto px-4 text-center">
+            <div data-aos="zoom-in">
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-white mb-6">Não Espere Mais para Regularizar seu Imóvel!</h2>
+                <p class="text-xl text-white/90 mb-8 max-w-3xl mx-auto">Cada dia que passa é uma oportunidade perdida. Entre em contato agora e dê o primeiro passo para a tranquilidade.</p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://wa.me/5519997959587?text=Olá!%20Quero%20regularizar%20meu%20imóvel%20agora!" 
+                       target="_blank"
+                       class="flex items-center justify-center gap-3 bg-accent hover:bg-orange-600 text-white px-10 py-5 rounded-full font-bold text-xl transition btn-pulse">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                        <span>Falar no WhatsApp</span>
+                    </a>
+                    <a href="tel:19997959587" 
+                       class="flex items-center justify-center gap-3 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border-2 border-white/30 px-10 py-5 rounded-full font-bold text-xl transition">
+                        <i class="fas fa-phone text-xl"></i>
+                        <span>Ligar Agora</span>
+                    </a>
+                </div>
+                
+                <div class="mt-8 flex flex-wrap justify-center gap-6 text-white/80">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-secondary"></i>
+                        <span>Atendimento Rápido</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-secondary"></i>
+                        <span>Orçamento Gratuito</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-secondary"></i>
+                        <span>Sem Compromisso</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">CONTATO</span>
+                <h2 class="font-display text-4xl lg:text-5xl font-bold text-dark mb-4">Fale Conosco</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Estamos prontos para ajudar você a regularizar seu imóvel</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="bg-light rounded-2xl p-8 text-center" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fab fa-whatsapp text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-dark mb-2">WhatsApp</h3>
+                    <p class="text-gray-600 mb-4">Resposta rápida no mesmo dia</p>
+                    <a href="https://wa.me/5519997959587" target="_blank" class="text-primary font-semibold hover:underline">(19) 9 9795-9587</a>
+                </div>
+                
+                <div class="bg-light rounded-2xl p-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-envelope text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-dark mb-2">E-mail</h3>
+                    <p class="text-gray-600 mb-4">Envie sua dúvida</p>
+                    <a href="mailto:contato@ccprojetos.com.br" class="text-primary font-semibold hover:underline">contato@ccprojetos.com.br</a>
+                </div>
+                
+                <div class="bg-light rounded-2xl p-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-dark mb-2">Localização</h3>
+                    <p class="text-gray-600 mb-4">Atendimento em</p>
+                    <p class="text-primary font-semibold">Araras - São Paulo</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="text-gray-500 mb-4">Siga-nos nas redes sociais</p>
+                <div class="flex justify-center gap-4">
+                    <a href="https://www.instagram.com/carloscesarcosta_/" target="_blank" 
+                       class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/5519997959587" target="_blank" 
+                       class="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white text-xl hover:scale-110 transition">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                            <i class="fas fa-building text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-display font-bold">CC Projetos</h4>
+                            <p class="text-xs text-gray-400">Regularização de Imóveis</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">Especialista em regularização de imóveis em Araras/SP com mais de 40 anos de experiência.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-display font-bold mb-4">Serviços</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#servicos" class="hover:text-white transition">Estudo de Viabilidade</a></li>
+                        <li><a href="#servicos" class="hover:text-white transition">Aprovação de Projeto</a></li>
+                        <li><a href="#servicos" class="hover:text-white transition">Habite-se</a></li>
+                        <li><a href="#servicos" class="hover:text-white transition">Desdobro de Lotes</a></li>
+                        <li><a href="#servicos" class="hover:text-white transition">Corpo de Bombeiros</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-display font-bold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Início</a></li>
+                        <li><a href="#servicos" class="hover:text-white transition">Serviços</a></li>
+                        <li><a href="#sobre" class="hover:text-white transition">Sobre</a></li>
+                        <li><a href="#contato" class="hover:text-white transition">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-display font-bold mb-4">Contato</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-center gap-2">
+                            <i class="fab fa-whatsapp text-green-500"></i>
+                            <span>(19) 9 9795-9587</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <span>contato@ccprojetos.com.br</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-map-marker-alt text-secondary"></i>
+                            <span>Araras - SP</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-gray-400 text-sm">© 2025 CC Projetos - Regularização de Imóveis. Todos os direitos reservados.</p>
+                <p class="text-gray-500 text-xs mt-2">CNPJ: [Inserir CNPJ] | CRT/SP: [Inserir Registro]</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5519997959587?text=Olá!%20Vi%20o%20anúncio%20e%20quero%20regularizar%20meu%20imóvel." 
+       target="_blank"
+       class="whatsapp-float w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center text-white text-3xl shadow-2xl transition">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+        
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+        
+        // Form Submit Handler
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const nome = e.target.querySelector('input[type="text"]').value;
+            const telefone = e.target.querySelector('input[type="tel"]').value;
+            const servico = e.target.querySelector('select').value;
+            const mensagem = e.target.querySelector('textarea').value;
+            
+            let texto = `Olá! Meu nome é ${nome}.\n`;
+            texto += `Tenho interesse em: ${servico}\n`;
+            if (mensagem) texto += `Mensagem: ${mensagem}\n`;
+            texto += `Meu telefone: ${telefone}`;
+            
+            const url = `https://wa.me/5519997959587?text=${encodeURIComponent(texto)}`;
+            window.open(url, '_blank');
+        }
+        
+        // Header Scroll Effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-xl');
+            } else {
+                header.classList.remove('shadow-xl');
+            }
+        });
+    </script>
+</body>
+</html>
