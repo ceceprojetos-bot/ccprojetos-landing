@@ -320,21 +320,55 @@
 
   <script>
     /*
-      CONFIGURAÇÃO NECESSÁRIA PARA CAPTURA E MENSURAÇÃO REAIS:
-      1) crie um formulário no Formspree e cole o endpoint em formEndpoint;
-      2) crie um contêiner GTM e cole o ID em gtmContainerId;
-      3) no GTM, faça lead_submit_success disparar a conversão do Google Ads.
-      Enquanto esses IDs estiverem vazios, o formulário abre o WhatsApp com todos
-      os dados preenchidos. Nenhum dado pessoal é enviado para dataLayer/GA4.
+      CONFIGURAÇÃO DE CAPTURA E MENSURAÇÃO:
+      - formEndpoint recebe o destino de um formulário que realmente registra o lead;
+      - gtmContainerId é opcional e deve ficar vazio ao usar a tag direta abaixo;
+      - a conversão do Google Ads registra apenas a abertura qualificada do WhatsApp,
+        depois de um formulário válido. Ela não envia nome, telefone, cidade ou mensagem.
     */
     const trackingConfig = {
       formEndpoint: "",
-      gtmContainerId: ""
+      gtmContainerId: "",
+      googleAdsTagId: "AW-17926438429",
+      googleAdsWhatsAppConversionLabel: "eUhSCM_6nOIcEJ38_uNC"
     };
 
     window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () {
+      window.dataLayer.push(arguments);
+    };
+
     function track(event, properties) {
       window.dataLayer.push(Object.assign({ event: event }, properties || {}));
+    }
+
+    function hasGoogleAdsTracking() {
+      return /^AW-\d+$/i.test(trackingConfig.googleAdsTagId) &&
+        /^[A-Za-z0-9_-]+$/.test(trackingConfig.googleAdsWhatsAppConversionLabel);
+    }
+
+    function installGoogleAdsTag() {
+      if (!hasGoogleAdsTracking()) return;
+
+      const adsScript = document.createElement("script");
+      adsScript.async = true;
+      adsScript.src = "https://www.googletagmanager.com/gtag/js?id=" +
+        encodeURIComponent(trackingConfig.googleAdsTagId);
+      document.head.appendChild(adsScript);
+
+      window.gtag("js", new Date());
+      window.gtag("config", trackingConfig.googleAdsTagId);
+    }
+
+    function reportWhatsAppConversion(leadId) {
+      if (!hasGoogleAdsTracking()) return;
+
+      window.gtag("event", "conversion", {
+        send_to: trackingConfig.googleAdsTagId + "/" + trackingConfig.googleAdsWhatsAppConversionLabel,
+        transaction_id: leadId,
+        value: 1.0,
+        currency: "BRL"
+      });
     }
 
     if (/^GTM-[A-Z0-9]+$/i.test(trackingConfig.gtmContainerId)) {
@@ -344,6 +378,8 @@
       gtmScript.src = "https://www.googletagmanager.com/gtm.js?id=" + encodeURIComponent(trackingConfig.gtmContainerId);
       document.head.appendChild(gtmScript);
     }
+
+    installGoogleAdsTag();
 
     const menuButton = document.querySelector(".menu-toggle");
     const mobileMenu = document.getElementById("mobile-menu");
@@ -441,9 +477,9 @@
         payload.mensagem ? "Situação: " + payload.mensagem : ""
       ].filter(Boolean).join("\n");
       track("whatsapp_form_redirect", { service: payload.servico });
+      reportWhatsAppConversion(payload.lead_id);
       window.open("https://wa.me/5519997959587?text=" + encodeURIComponent(message), "_blank", "noopener");
     }
   </script>
 </body>
 </html>
-
