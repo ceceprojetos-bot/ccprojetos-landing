@@ -10,6 +10,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17926438429"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function () {
+      window.dataLayer.push(arguments);
+    };
+    window.gtag("js", new Date());
+    window.gtag("config", "AW-17926438429");
+  </script>
   <style>
     :root {
       --blue: #124d96;
@@ -323,8 +332,8 @@
       CONFIGURAÇÃO DE CAPTURA E MENSURAÇÃO:
       - formEndpoint recebe o destino de um formulário que realmente registra o lead;
       - gtmContainerId é opcional e deve ficar vazio ao usar a tag direta abaixo;
-      - a conversão do Google Ads registra apenas a abertura qualificada do WhatsApp,
-        depois de um formulário válido. Ela não envia nome, telefone, cidade ou mensagem.
+      - a conversão do Google Ads registra somente um clique real que abre o WhatsApp;
+      - ela não envia nome, telefone, cidade ou mensagem à conversão do Google Ads.
     */
     const trackingConfig = {
       formEndpoint: "",
@@ -347,28 +356,22 @@
         /^[A-Za-z0-9_-]+$/.test(trackingConfig.googleAdsWhatsAppConversionLabel);
     }
 
-    function installGoogleAdsTag() {
-      if (!hasGoogleAdsTracking()) return;
+    const reportedWhatsAppConversions = new Set();
 
-      const adsScript = document.createElement("script");
-      adsScript.async = true;
-      adsScript.src = "https://www.googletagmanager.com/gtag/js?id=" +
-        encodeURIComponent(trackingConfig.googleAdsTagId);
-      document.head.appendChild(adsScript);
+    function reportWhatsAppConversion(interactionId) {
+      if (!hasGoogleAdsTracking() || !interactionId || reportedWhatsAppConversions.has(interactionId)) {
+        return false;
+      }
 
-      window.gtag("js", new Date());
-      window.gtag("config", trackingConfig.googleAdsTagId);
-    }
-
-    function reportWhatsAppConversion(leadId) {
-      if (!hasGoogleAdsTracking()) return;
+      reportedWhatsAppConversions.add(interactionId);
 
       window.gtag("event", "conversion", {
         send_to: trackingConfig.googleAdsTagId + "/" + trackingConfig.googleAdsWhatsAppConversionLabel,
-        transaction_id: leadId,
+        transaction_id: interactionId,
         value: 1.0,
         currency: "BRL"
       });
+      return true;
     }
 
     if (/^GTM-[A-Z0-9]+$/i.test(trackingConfig.gtmContainerId)) {
@@ -379,8 +382,6 @@
       document.head.appendChild(gtmScript);
     }
 
-    installGoogleAdsTag();
-
     const menuButton = document.querySelector(".menu-toggle");
     const mobileMenu = document.getElementById("mobile-menu");
     menuButton.addEventListener("click", function () {
@@ -388,28 +389,77 @@
       menuButton.setAttribute("aria-expanded", String(isOpen));
     });
 
-    document.querySelectorAll(".js-whatsapp").forEach(function (link) {
-      link.addEventListener("click", function () {
-        track("whatsapp_click", { placement: link.dataset.label || "link" });
-      });
-    });
-
     function getAttribution() {
       const params = new URLSearchParams(window.location.search);
-      return {
-        gclid: params.get("gclid") || "",
-        gbraid: params.get("gbraid") || "",
-        wbraid: params.get("wbraid") || "",
-        utm_source: params.get("utm_source") || "",
-        utm_medium: params.get("utm_medium") || "",
-        utm_campaign: params.get("utm_campaign") || ""
-      };
+      const attribution = {};
+
+      params.forEach(function (value, key) {
+        const normalizedKey = key.toLowerCase();
+        if (value && (/^utm_/i.test(key) || ["gclid", "gbraid", "wbraid"].includes(normalizedKey))) {
+          attribution[normalizedKey] = value;
+        }
+      });
+
+      return attribution;
+    }
+
+    function getAttributionLines(attribution) {
+      return Object.entries(attribution || {})
+        .filter(function ([key, value]) {
+          return value && (/^utm_/i.test(key) || ["gclid", "gbraid", "wbraid"].includes(key));
+        })
+        .map(function ([key, value]) {
+          return "Origem " + key.toUpperCase() + ": " + value;
+        });
+    }
+
+    function createWhatsAppUrl(baseHref, attribution) {
+      const url = new URL(baseHref, window.location.href);
+      const baseMessage = url.searchParams.get("text") || "";
+      const attributionLines = getAttributionLines(attribution);
+
+      if (attributionLines.length) {
+        url.searchParams.set("text", [baseMessage].concat(attributionLines).filter(Boolean).join("\n"));
+      }
+
+      return url.toString();
     }
 
     function makeLeadId() {
       if (window.crypto && window.crypto.randomUUID) return window.crypto.randomUUID();
       return "lead-" + Date.now() + "-" + Math.random().toString(16).slice(2);
     }
+
+    function handleWhatsAppClick(event) {
+      if (event.isTrusted === false) return;
+
+      const link = event.currentTarget;
+      const baseHref = link.dataset.whatsappBaseHref || link.href;
+      const interactionId = makeLeadId();
+      const placement = link.dataset.label || "link";
+
+      link.dataset.whatsappBaseHref = baseHref;
+      link.href = createWhatsAppUrl(baseHref, getAttribution());
+
+      track("whatsapp_click", {
+        placement: placement,
+        interaction_id: interactionId,
+        conversion_reported: reportWhatsAppConversion(interactionId)
+      });
+    }
+
+    function handlePhoneClick(event) {
+      if (event.isTrusted === false) return;
+      track("phone_click", { placement: event.currentTarget.dataset.label || "phone_link" });
+    }
+
+    document.querySelectorAll(".js-whatsapp").forEach(function (link) {
+      link.addEventListener("click", handleWhatsAppClick);
+    });
+
+    document.querySelectorAll('a[href^="tel:"]').forEach(function (link) {
+      link.addEventListener("click", handlePhoneClick);
+    });
 
     const form = document.getElementById("lead-form");
     const status = document.getElementById("form-status");
@@ -475,7 +525,7 @@
         "Cidade do imóvel: " + payload.cidade,
         "Serviço: " + payload.servico,
         payload.mensagem ? "Situação: " + payload.mensagem : ""
-      ].filter(Boolean).join("\n");
+      ].concat(getAttributionLines(payload)).filter(Boolean).join("\n");
       track("whatsapp_form_redirect", { service: payload.servico });
       reportWhatsAppConversion(payload.lead_id);
       window.open("https://wa.me/5519997959587?text=" + encodeURIComponent(message), "_blank", "noopener");
