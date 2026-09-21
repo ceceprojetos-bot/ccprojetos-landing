@@ -116,6 +116,18 @@
     .service h3 { font-size: 20px; }
     .service p { margin: 0; color: var(--muted); font-size: 14px; }
     .service a { margin-top: auto; color: var(--blue); font-size: 14px; font-weight: 800; }
+    .case-paths { background: var(--white); }
+    .case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 34px; }
+    .case-card { display: grid; align-content: start; gap: 15px; min-height: 100%; padding: 30px; border: 1px solid var(--border); border-top: 5px solid var(--blue); border-radius: 16px; background: linear-gradient(145deg, #fff, #f6f9fd); box-shadow: 0 10px 30px rgba(33,55,84,.08); }
+    .case-card.receita { border-top-color: var(--orange); }
+    .case-card .section-kicker { margin: 0; }
+    .case-card h2 { font-size: clamp(24px, 2.5vw, 32px); }
+    .case-card p { margin: 0; color: var(--muted); }
+    .case-list { display: grid; gap: 8px; margin: 2px 0 4px; padding: 0; list-style: none; color: #354154; font-size: 14px; font-weight: 700; }
+    .case-list li { display: flex; align-items: flex-start; gap: 9px; }
+    .case-list li::before { content: "✓"; display: inline-grid; flex: 0 0 20px; place-items: center; width: 20px; height: 20px; margin-top: 1px; border-radius: 50%; background: #e6f0fb; color: var(--blue); font-size: 12px; }
+    .case-card.receita .case-list li::before { background: #fff0e3; color: #b85100; }
+    .case-card .button { justify-self: start; margin-top: auto; }
     .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 35px; }
     .step { position: relative; padding: 24px; border-radius: 14px; background: var(--white); box-shadow: 0 7px 25px rgba(33,55,84,.08); }
     .step-number { display: grid; place-items: center; width: 32px; height: 32px; margin-bottom: 16px; border-radius: 50%; background: var(--blue); color: var(--white); font-weight: 800; }
@@ -142,7 +154,7 @@
       .menu-toggle { display: inline-flex; }
       .hero-grid { grid-template-columns: 1fr; gap: 32px; padding: 55px 0 48px; }
       .lead-card { max-width: 620px; }
-      .service-grid { grid-template-columns: repeat(2, 1fr); }
+      .service-grid, .case-grid { grid-template-columns: repeat(2, 1fr); }
       .steps { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
@@ -155,8 +167,10 @@
       .hero-actions .button { width: 100%; }
       .trust-list { display: grid; gap: 9px; }
       .lead-card { padding: 21px; }
-      .form-grid, .service-grid, .faq-grid { grid-template-columns: 1fr; }
+      .form-grid, .service-grid, .case-grid, .faq-grid { grid-template-columns: 1fr; }
       .field.full { grid-column: auto; }
+      .case-card { padding: 24px; }
+      .case-card .button { width: 100%; }
       section { padding: 58px 0; }
       .section-intro { font-size: 16px; }
       .footer-inner { align-items: flex-start; flex-direction: column; }
@@ -225,15 +239,15 @@
                 <input id="lead-city" name="cidade" autocomplete="address-level2" required placeholder="Ex.: Araras">
               </div>
               <div class="field">
-                <label for="lead-service">O que você precisa?</label>
+                <label for="lead-service">Qual é a principal pendência?</label>
                 <select id="lead-service" name="servico" required>
-                  <option value="">Selecione um serviço</option>
-                  <option>Estudo de viabilidade técnica</option>
-                  <option>Aprovação de projeto</option>
-                  <option>Habite-se ou certidão</option>
-                  <option>Desdobro de lote</option>
-                  <option>Projeto Corpo de Bombeiros</option>
-                  <option>Outro caso de regularização</option>
+                  <option value="">Selecione uma opção</option>
+                  <option>Obra sem projeto</option>
+                  <option>Comunicado da Receita Federal</option>
+                  <option>CNO/SERO/INSS/CND</option>
+                  <option>Cartório/averbação</option>
+                  <option>Venda, financiamento ou inventário</option>
+                  <option>Outro problema</option>
                 </select>
               </div>
               <div class="field full">
@@ -268,6 +282,38 @@
           <article class="service"><span class="service-icon" aria-hidden="true">⌘</span><h3>Desdobro de lotes</h3><p>Estudo e encaminhamento técnico para divisão de terrenos e adequação urbanística.</p><a href="#formulario">Falar sobre desdobro →</a></article>
           <article class="service"><span class="service-icon" aria-hidden="true">▦</span><h3>Projeto Bombeiros</h3><p>Projeto e regularização de prevenção contra incêndio conforme a necessidade da edificação.</p><a href="#formulario">Preciso de orientação →</a></article>
           <article class="service"><span class="service-icon" aria-hidden="true">?</span><h3>Consultoria técnica</h3><p>Uma orientação clara para organizar documentos e decidir o caminho adequado para o imóvel.</p><a href="#formulario">Tirar uma dúvida →</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="situacoes-da-obra" class="case-paths" aria-label="Situações frequentes de regularização">
+      <div class="container">
+        <span class="section-kicker">Situações frequentes</span>
+        <h2 class="section-title">Entenda quais informações podem fazer diferença no seu caso</h2>
+        <p class="section-intro">A análise inicial considera a obra, os documentos disponíveis e os registros existentes. Não é seguro antecipar um caminho, prazo ou resultado antes dessa verificação.</p>
+        <div class="case-grid">
+          <article class="case-card" aria-labelledby="obra-sem-projeto-title">
+            <span class="section-kicker">Regularização de obra</span>
+            <h2 id="obra-sem-projeto-title">Construiu, ampliou ou reformou sem projeto?</h2>
+            <p>Uma construção, ampliação ou reforma pode precisar de análise quando a situação atual do imóvel não está compatível com os registros e documentos disponíveis.</p>
+            <ul class="case-list">
+              <li>Verificação da situação da obra e do cadastro municipal</li>
+              <li>Orientação sobre levantamento, projeto e documentos que podem ser necessários</li>
+              <li>Atenção a possíveis reflexos em matrícula, venda, financiamento ou inventário</li>
+            </ul>
+            <a class="button" href="#formulario">Solicitar análise inicial</a>
+          </article>
+          <article class="case-card receita" aria-labelledby="comunicado-receita-title">
+            <span class="section-kicker">Documentação de obra</span>
+            <h2 id="comunicado-receita-title">Recebeu um comunicado da Receita Federal sobre sua obra?</h2>
+            <p>O documento merece atenção, mas o encaminhamento depende do seu conteúdo, das características da construção e dos registros já existentes.</p>
+            <ul class="case-list">
+              <li>Leitura inicial do comunicado e dos documentos relacionados à obra</li>
+              <li>Orientação sobre temas que podem envolver CNO, SERO, contribuições ou certidões</li>
+              <li>Próximos passos definidos somente depois da análise do caso</li>
+            </ul>
+            <a class="button" href="#formulario">Solicitar análise inicial</a>
+          </article>
         </div>
       </div>
     </section>
