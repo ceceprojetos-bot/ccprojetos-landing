@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Regularização de imóveis em Araras e região. Atendimento com técnico em Edificações habilitado pelo CRT/SP para viabilidade, aprovação de projeto, habite-se e desdobro.">
+  <meta name="description" content="Regularização de obras e imóveis em Araras e região. Atuação técnica desde 1985 como Técnico Habilitado para Habite-se, averbação, CNO/SERO/INSS e desdobro de lotes.">
   <meta name="theme-color" content="#124d96">
   <link rel="canonical" href="https://ceceprojetos-bot.github.io/ccprojetos-landing/">
-  <title>Regularização de Imóveis em Araras | CC Projetos</title>
+  <title>Regularização de Obras e Imóveis em Araras | CC Projetos</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -69,24 +69,25 @@
       display: inline-flex; align-items: center; justify-content: center; gap: 9px;
       min-height: 48px; padding: 13px 20px; border: 0; border-radius: 10px;
       background: var(--orange); color: var(--white); font-weight: 800; cursor: pointer;
+      text-align: center;
       transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
     }
     .button:hover, .button:focus-visible { background: #d45e00; box-shadow: 0 9px 22px rgba(239,108,0,.28); transform: translateY(-1px); }
     .button.secondary { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,.7); }
     .button.secondary:hover, .button.secondary:focus-visible { background: rgba(255,255,255,.14); }
-    .button.ghost { color: var(--blue); background: var(--white); border: 1px solid var(--border); }
-    .button.ghost:hover, .button.ghost:focus-visible { background: #edf4fb; box-shadow: none; }
+    .button.ghost { color: var(--blue); background: #f0f5fa; border: 1px solid #cce0f5; font-size: 14px; min-height: 44px; padding: 10px 16px; width: 100%; justify-content: space-between; }
+    .button.ghost:hover, .button.ghost:focus-visible { background: var(--blue); color: var(--white); border-color: var(--blue); box-shadow: 0 4px 14px rgba(18,77,150,.2); }
     .hero {
       position: relative; overflow: hidden; color: var(--white);
       background: radial-gradient(circle at 80% 14%, rgba(49,116,204,.86), transparent 34%), linear-gradient(128deg, var(--blue-dark), var(--blue));
     }
     .hero::after { content: ""; position: absolute; right: -220px; bottom: -250px; width: 610px; height: 610px; border-radius: 50%; background: rgba(239,108,0,.14); }
     .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 42px; padding: 74px 0 66px; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 7px; margin: 0 0 15px; padding: 7px 11px; border-radius: 999px; background: rgba(255,255,255,.14); color: var(--white); font-size: 14px; font-weight: 700; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 7px; margin: 0 0 15px; padding: 7px 13px; border-radius: 999px; background: rgba(255,255,255,.14); color: var(--white); font-size: 14px; font-weight: 700; }
     h1, h2, h3 { margin: 0; font-family: "Montserrat", Arial, sans-serif; line-height: 1.15; }
-    h1 { max-width: 690px; font-size: clamp(36px, 4.5vw, 57px); letter-spacing: -.035em; }
+    h1 { max-width: 690px; font-size: clamp(34px, 4.2vw, 54px); letter-spacing: -.035em; }
     .hero h1 em { color: #ffad62; font-style: normal; }
-    .hero-copy { max-width: 650px; margin: 20px 0 26px; color: rgba(255,255,255,.91); font-size: 19px; }
+    .hero-copy { max-width: 650px; margin: 20px 0 26px; color: rgba(255,255,255,.91); font-size: 18px; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
     .trust-list { display: flex; flex-wrap: wrap; gap: 15px 20px; margin: 27px 0 0; padding: 0; list-style: none; color: rgba(255,255,255,.92); font-size: 14px; font-weight: 700; }
     .trust-list li::before { content: "✓"; display: inline-grid; place-items: center; width: 18px; height: 18px; margin-right: 7px; border-radius: 50%; background: #69b77c; color: #0f5123; font-weight: 900; }
@@ -111,11 +112,12 @@
     .section-intro { max-width: 750px; margin: 15px 0 0; color: var(--muted); font-size: 18px; }
     .services { background: var(--surface); }
     .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; }
-    .service { display: grid; align-content: start; gap: 11px; min-height: 255px; padding: 25px; border: 1px solid #e1e8ef; border-radius: 14px; background: var(--white); }
+    .service { display: grid; align-content: start; gap: 11px; min-height: 270px; padding: 25px; border: 1px solid #e1e8ef; border-radius: 14px; background: var(--white); transition: border-color .2s ease, box-shadow .2s ease; }
+    .service:hover { border-color: #bcd5f0; box-shadow: 0 8px 24px rgba(18,77,150,.08); }
     .service-icon { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 12px; background: #e6f0fb; color: var(--blue); font-size: 21px; }
     .service h3 { font-size: 20px; }
     .service p { margin: 0; color: var(--muted); font-size: 14px; }
-    .service a { margin-top: auto; color: var(--blue); font-size: 14px; font-weight: 800; }
+    .service .button.ghost { margin-top: auto; }
     .case-paths { background: var(--white); }
     .case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; margin-top: 34px; }
     .case-card { display: grid; align-content: start; gap: 15px; min-height: 100%; padding: 30px; border: 1px solid var(--border); border-top: 5px solid var(--blue); border-radius: 16px; background: linear-gradient(145deg, #fff, #f6f9fd); box-shadow: 0 10px 30px rgba(33,55,84,.08); }
@@ -187,19 +189,21 @@
       </a>
       <nav class="nav" aria-label="Navegação principal">
         <a href="#servicos">Serviços</a>
+        <a href="#situacoes-da-obra">Situações frequentes</a>
         <a href="#como-funciona">Como funciona</a>
         <a href="#duvidas">Dúvidas</a>
         <a href="#contato">Contato</a>
       </nav>
-      <a class="button header-cta js-whatsapp" data-label="cabecalho" href="https://wa.me/5519997959587?text=Ol%C3%A1%21%20Quero%20falar%20sobre%20a%20regulariza%C3%A7%C3%A3o%20do%20meu%20im%C3%B3vel." target="_blank" rel="noopener">Falar no WhatsApp</a>
-      <button class="menu-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false">☰<span class="sr-only"></span></button>
+      <a class="button header-cta js-whatsapp" data-label="cabecalho" href="https://wa.me/5519997959587?text=Ol%C3%A1%21%20Preciso%20regularizar%20uma%20obra%20ou%20im%C3%B3vel%20em%20Araras%20e%20gostaria%20de%20contar%20meu%20caso." target="_blank" rel="noopener">Fale pelo WhatsApp</a>
+      <button class="menu-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false">☰<span class="sr-only">Menu</span></button>
     </div>
     <nav id="mobile-menu" class="container mobile-nav" aria-label="Navegação móvel">
       <a href="#servicos">Serviços</a>
+      <a href="#situacoes-da-obra">Situações frequentes</a>
       <a href="#como-funciona">Como funciona</a>
       <a href="#duvidas">Dúvidas</a>
       <a href="#contato">Contato</a>
-      <a class="button js-whatsapp" data-label="menu_mobile" href="https://wa.me/5519997959587?text=Ol%C3%A1%21%20Quero%20falar%20sobre%20a%20regulariza%C3%A7%C3%A3o%20do%20meu%20im%C3%B3vel." target="_blank" rel="noopener">Falar no WhatsApp</a>
+      <a class="button js-whatsapp" data-label="menu_mobile" href="https://wa.me/5519997959587?text=Ol%C3%A1%21%20Preciso%20regularizar%20uma%20obra%20ou%20im%C3%B3vel%20em%20Araras%20e%20gostaria%20de%20contar%20meu%20caso." target="_blank" rel="noopener">Fale pelo WhatsApp e conte seu caso</a>
     </nav>
   </header>
 
@@ -207,28 +211,28 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="container hero-grid">
         <div>
-          <p class="eyebrow">★ Mais de 40 anos de experiência</p>
-          <h1 id="hero-title">Regularização de imóveis em <em>Araras e região</em></h1>
-          <p class="hero-copy">Entenda o que falta para regularizar seu imóvel, obter habite-se, aprovar um projeto ou preparar a documentação para venda e inventário.</p>
+          <p class="eyebrow">★ Atuação desde 1985 em Araras e região</p>
+          <h1 id="hero-title">Precisa regularizar uma <em>obra ou imóvel em Araras?</em></h1>
+          <p class="hero-copy">Cada caso exige uma análise técnica e documental única. Orientamos você passo a passo para entender as pendências do seu imóvel na Prefeitura, Receita Federal e Cartório, sem prometer aprovação, prazo ou custo sem avaliação prévia.</p>
           <div class="hero-actions">
-            <a class="button" href="#formulario">Solicitar análise inicial</a>
-            <a class="button secondary js-whatsapp" data-label="hero" href="https://wa.me/5519997959587?text=Ol%C3%A1%21%20Vi%20a%20p%C3%A1gina%20da%20CC%20Projetos%20e%20quero%20regularizar%20meu%20im%C3%B3vel." target="_blank" rel="noopener">Falar no WhatsApp</a>
+            <a class="button js-whatsapp" data-label="hero_principal" href="https://wa.me/5519997959587?text=Ol%C3%A1%21%20Preciso%20regularizar%20uma%20obra%20ou%20im%C3%B3vel%20em%20Araras%20e%20gostaria%20de%20contar%20meu%20caso." target="_blank" rel="noopener">Fale pelo WhatsApp e conte seu caso</a>
+            <a class="button secondary" href="#formulario">Solicitar análise por formulário</a>
           </div>
           <ul class="trust-list">
-            <li>Técnico em Edificações habilitado pelo CRT/SP</li>
-            <li>Atendimento em Araras/SP</li>
-            <li>Orientação inicial sem compromisso</li>
+            <li>Técnico Habilitado</li>
+            <li>Experiência e atendimento em Araras/SP e região</li>
+            <li>Análise técnica e documental criteriosa</li>
           </ul>
         </div>
 
         <section id="formulario" class="lead-card" aria-labelledby="form-title">
           <h2 id="form-title">Solicite uma análise inicial</h2>
-          <p>Conte o básico sobre seu imóvel. Se o recebimento online ainda não estiver configurado, abriremos o WhatsApp com todos os dados preenchidos.</p>
+          <p>Conte o básico sobre seu imóvel. Ao enviar, abriremos o WhatsApp com as informações organizadas para agilizar seu atendimento.</p>
           <form id="lead-form" novalidate>
             <div class="form-grid">
               <div class="field">
                 <label for="lead-name">Nome</label>
-                <input id="lead-name" name="nome" autocomplete="name" required placeholder="Seu nome">
+                <input id="lead-name" name="nome" autocomplete="name" required placeholder="Seu nome completo">
               </div>
               <div class="field">
                 <label for="lead-phone">WhatsApp</label>
@@ -242,17 +246,18 @@
                 <label for="lead-service">Qual é a principal pendência?</label>
                 <select id="lead-service" name="servico" required>
                   <option value="">Selecione uma opção</option>
-                  <option>Obra sem projeto</option>
-                  <option>Comunicado da Receita Federal</option>
-                  <option>CNO/SERO/INSS/CND</option>
-                  <option>Cartório/averbação</option>
+                  <option>Regularização de obra (sem projeto / ampliação)</option>
+                  <option>Habite-se / aceite municipal</option>
+                  <option>Averbação no Cartório de Imóveis</option>
+                  <option>CNO / SERO / INSS / Comunicado da Receita</option>
+                  <option>Desdobro ou unificação de lotes</option>
                   <option>Venda, financiamento ou inventário</option>
-                  <option>Outro problema</option>
+                  <option>Outra dúvida / consultoria técnica</option>
                 </select>
               </div>
               <div class="field full">
                 <label for="lead-message">Conte brevemente sua situação <span aria-hidden="true">(opcional)</span></label>
-                <textarea id="lead-message" name="mensagem" placeholder="Ex.: preciso regularizar para vender o imóvel."></textarea>
+                <textarea id="lead-message" name="mensagem" placeholder="Ex.: construí um cômodo sem projeto e preciso regularizar para vender."></textarea>
               </div>
             </div>
             <div class="honeypot" aria-hidden="true">
@@ -263,7 +268,7 @@
               <input id="lead-consent" name="consentimento" type="checkbox" required>
               <span>Autorizo o uso destes dados para responder a esta solicitação, conforme a <a href="#privacidade">política de privacidade</a>.</span>
             </label>
-            <button class="button" type="submit">Enviar solicitação</button>
+            <button class="button" type="submit">Enviar e abrir WhatsApp</button>
             <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
           </form>
         </section>
@@ -272,16 +277,46 @@
 
     <section id="servicos" class="services" aria-labelledby="servicos-title">
       <div class="container">
-        <span class="section-kicker">Serviços</span>
-        <h2 id="servicos-title" class="section-title">Soluções para regularizar, aprovar e valorizar seu imóvel</h2>
-        <p class="section-intro">Cada processo depende da documentação, do tipo de imóvel e das exigências do município. A análise inicial ajuda a definir o próximo passo.</p>
+        <span class="section-kicker">Nossos Serviços</span>
+        <h2 id="servicos-title" class="section-title">Soluções claras para regularizar, aprovar e documentar seu imóvel</h2>
+        <p class="section-intro">Cada serviço exige a análise prévia dos documentos existentes e das normas municipais e federais. Veja como a CCProjetos pode ajudar:</p>
         <div class="service-grid">
-          <article class="service"><span class="service-icon" aria-hidden="true">✓</span><h3>Estudo de viabilidade</h3><p>Avaliação técnica inicial para entender se e como o imóvel pode ser regularizado.</p><a href="#formulario">Quero analisar meu caso →</a></article>
-          <article class="service"><span class="service-icon" aria-hidden="true">▣</span><h3>Aprovação de projeto</h3><p>Preparação e acompanhamento da documentação necessária para aprovação municipal.</p><a href="#formulario">Solicitar orientação →</a></article>
-          <article class="service"><span class="service-icon" aria-hidden="true">⌑</span><h3>Habite-se e certidões</h3><p>Orientação para as etapas de conclusão, vistoria e documentação do imóvel.</p><a href="#formulario">Verificar meu caso →</a></article>
-          <article class="service"><span class="service-icon" aria-hidden="true">⌘</span><h3>Desdobro de lotes</h3><p>Estudo e encaminhamento técnico para divisão de terrenos e adequação urbanística.</p><a href="#formulario">Falar sobre desdobro →</a></article>
-          <article class="service"><span class="service-icon" aria-hidden="true">▦</span><h3>Projeto Bombeiros</h3><p>Projeto e regularização de prevenção contra incêndio conforme a necessidade da edificação.</p><a href="#formulario">Preciso de orientação →</a></article>
-          <article class="service"><span class="service-icon" aria-hidden="true">?</span><h3>Consultoria técnica</h3><p>Uma orientação clara para organizar documentos e decidir o caminho adequado para o imóvel.</p><a href="#formulario">Tirar uma dúvida →</a></article>
+          <article class="service">
+            <span class="service-icon" aria-hidden="true">✓</span>
+            <h3>Regularização de obras</h3>
+            <p>Adequação técnica de construções, reformas e ampliações executadas sem projeto aprovado perante a Prefeitura de Araras e região.</p>
+            <a class="button ghost js-whatsapp" data-label="servico_regularizacao" href="https://wa.me/5519997959587?text=Ol%C3%A1%21%20Preciso%20de%20ajuda%20com%20a%20regulariza%C3%A7%C3%A3o%20de%20uma%20obra%20%28obra%20sem%20projeto%20ou%20amplia%C3%A7%C3%A3o%29." target="_blank" rel="noopener">Falar sobre regularização <span>→</span></a>
+          </article>
+          <article class="service">
+            <span class="service-icon" aria-hidden="true">⌑</span>
+            <h3>Habite-se / Aceite</h3>
+            <p>Orientação técnica e acompanhamento documental das etapas de vistoria e emissão do certificado de habite-se ou aceite municipal.</p>
+            <a class="button ghost js-whatsapp" data-label="servico_habitese" href="https://wa.me/5519997959587?text=Ol%C3%A1%21%20Preciso%20de%20orienta%C3%A7%C3%A3o%20para%20obter%20o%20Habite-se%2Faceite%20do%20meu%20im%C3%B3vel." target="_blank" rel="noopener">Falar sobre Habite-se <span>→</span></a>
+          </article>
+          <article class="service">
+            <span class="service-icon" aria-hidden="true">▦</span>
+            <h3>Averbação da construção</h3>
+            <p>Compatibilização da documentação da obra com o Cartório de Registro de Imóveis para regularizar a matrícula (fundamental para venda e inventário).</p>
+            <a class="button ghost js-whatsapp" data-label="servico_averbacao" href="https://wa.me/5519997959587?text=Ol%C3%A1%21%20Preciso%20de%20ajuda%20com%20a%20averba%C3%A7%C3%A3o%20da%20minha%20constru%C3%A7%C3%A3o%20no%20cart%C3%B3rio." target="_blank" rel="noopener">Falar sobre averbação <span>→</span></a>
+          </article>
+          <article class="service">
+            <span class="service-icon" aria-hidden="true">📋</span>
+            <h3>CNO / SERO / INSS da obra</h3>
+            <p>Leitura de comunicados da Receita Federal, cadastro de obra (CNO), aferição no SERO e orientações para certidão negativa (CND).</p>
+            <a class="button ghost js-whatsapp" data-label="servico_sero" href="https://wa.me/5519997959587?text=Ol%C3%A1%21%20Preciso%20de%20aux%C3%ADlio%20com%20CNO%2C%20SERO%2C%20INSS%20ou%20comunicado%20da%20Receita%20Federal%20sobre%20obra." target="_blank" rel="noopener">Falar sobre CNO / SERO <span>→</span></a>
+          </article>
+          <article class="service">
+            <span class="service-icon" aria-hidden="true">⌘</span>
+            <h3>Desdobro ou unificação</h3>
+            <p>Estudo de viabilidade técnica e projetos para divisão (desdobro) ou junção (unificação) de lotes e terrenos conforme leis de zoneamento.</p>
+            <a class="button ghost js-whatsapp" data-label="servico_desdobro" href="https://wa.me/5519997959587?text=Ol%C3%A1%21%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20desdobro%20ou%20unifica%C3%A7%C3%A3o%20de%20lotes." target="_blank" rel="noopener">Falar sobre desdobro <span>→</span></a>
+          </article>
+          <article class="service">
+            <span class="service-icon" aria-hidden="true">?</span>
+            <h3>Consultoria e viabilidade</h3>
+            <p>Análise técnica detalhada da documentação antes de comprar, vender, financiar ou iniciar a regularização de um imóvel.</p>
+            <a class="button ghost js-whatsapp" data-label="servico_consultoria" href="https://wa.me/5519997959587?text=Ol%C3%A1%21%20Gostaria%20de%20uma%20consultoria%20t%C3%A9cnica%20para%20analisar%20meu%20im%C3%B3vel." target="_blank" rel="noopener">Tirar dúvida no WhatsApp <span>→</span></a>
+          </article>
         </div>
       </div>
     </section>
@@ -289,30 +324,30 @@
     <section id="situacoes-da-obra" class="case-paths" aria-label="Situações frequentes de regularização">
       <div class="container">
         <span class="section-kicker">Situações frequentes</span>
-        <h2 class="section-title">Entenda quais informações podem fazer diferença no seu caso</h2>
-        <p class="section-intro">A análise inicial considera a obra, os documentos disponíveis e os registros existentes. Não é seguro antecipar um caminho, prazo ou resultado antes dessa verificação.</p>
+        <h2 class="section-title">Qual é a situação atual da sua construção?</h2>
+        <p class="section-intro">A análise inicial avalia os documentos que você já tem em mãos e o estado real da edificação. Não é seguro prometer prazos ou resultados sem esse levantamento prévio.</p>
         <div class="case-grid">
           <article class="case-card" aria-labelledby="obra-sem-projeto-title">
             <span class="section-kicker">Regularização de obra</span>
             <h2 id="obra-sem-projeto-title">Construiu, ampliou ou reformou sem projeto?</h2>
-            <p>Uma construção, ampliação ou reforma pode precisar de análise quando a situação atual do imóvel não está compatível com os registros e documentos disponíveis.</p>
+            <p>Quando a construção atual não condiz com a planta aprovada ou os registros na Prefeitura, o imóvel fica irregular, prejudicando avaliações e vendas.</p>
             <ul class="case-list">
-              <li>Verificação da situação da obra e do cadastro municipal</li>
-              <li>Orientação sobre levantamento, projeto e documentos que podem ser necessários</li>
-              <li>Atenção a possíveis reflexos em matrícula, venda, financiamento ou inventário</li>
+              <li>Verificação da situação física da obra e do cadastro municipal</li>
+              <li>Orientação sobre levantamento arquitetônico e projetos necessários</li>
+              <li>Prevenção contra problemas na matrícula, financiamento ou inventário</li>
             </ul>
-            <a class="button" href="#formulario">Solicitar análise inicial</a>
+            <a class="button js-whatsapp" data-label="caso_obra_sem_projeto" href="https://wa.me/5519997959587?text=Ol%C3%A1%21%20Tenho%20uma%20obra%20sem%20projeto%20ou%20amplia%C3%A7%C3%A3o%20sem%20registro%20em%20Araras%20e%20quero%20analisar." target="_blank" rel="noopener">Fale pelo WhatsApp e conte seu caso</a>
           </article>
           <article class="case-card receita" aria-labelledby="comunicado-receita-title">
             <span class="section-kicker">Documentação de obra</span>
             <h2 id="comunicado-receita-title">Recebeu um comunicado da Receita Federal sobre sua obra?</h2>
-            <p>O documento merece atenção, mas o encaminhamento depende do seu conteúdo, das características da construção e dos registros já existentes.</p>
+            <p>Receber uma notificação ou aviso exige atenção, mas as providências dependem do conteúdo da carta, do prazo indicado e dos registros existentes.</p>
             <ul class="case-list">
-              <li>Leitura inicial do comunicado e dos documentos relacionados à obra</li>
-              <li>Orientação sobre temas que podem envolver CNO, SERO, contribuições ou certidões</li>
-              <li>Próximos passos definidos somente depois da análise do caso</li>
+              <li>Leitura criteriosa do comunicado e dos documentos da construção</li>
+              <li>Orientação sobre cadastro CNO, aferição no SERO e tributos da obra</li>
+              <li>Definição dos passos corretos após o diagnóstico técnico</li>
             </ul>
-            <a class="button" href="#formulario">Solicitar análise inicial</a>
+            <a class="button js-whatsapp" data-label="caso_receita_federal" href="https://wa.me/5519997959587?text=Ol%C3%A1%21%20Recebi%20um%20comunicado%20da%20Receita%20Federal%20sobre%20minha%20obra%20e%20preciso%20de%20orienta%C3%A7%C3%A3o." target="_blank" rel="noopener">Fale pelo WhatsApp e conte seu caso</a>
           </article>
         </div>
       </div>
@@ -321,11 +356,23 @@
     <section id="como-funciona" aria-labelledby="processo-title">
       <div class="container">
         <span class="section-kicker">Como funciona</span>
-        <h2 id="processo-title" class="section-title">Um caminho claro desde a primeira conversa</h2>
+        <h2 id="processo-title" class="section-title">Um caminho transparente do início ao fim</h2>
         <div class="steps">
-          <article class="step"><span class="step-number">1</span><h3>Você explica o caso</h3><p>Informe o tipo de imóvel, a cidade e o que você precisa resolver.</p></article>
-          <article class="step"><span class="step-number">2</span><h3>Avaliamos a viabilidade</h3><p>Orientamos sobre documentos, etapas e pontos técnicos que precisam ser analisados.</p></article>
-          <article class="step"><span class="step-number">3</span><h3>Você recebe o próximo passo</h3><p>Com as informações iniciais, o atendimento indica o encaminhamento mais adequado.</p></article>
+          <article class="step">
+            <span class="step-number">1</span>
+            <h3>Você detalha seu caso</h3>
+            <p>Fale conosco no WhatsApp informando a cidade, o tipo de imóvel e a principal dúvida ou notificação recebida.</p>
+          </article>
+          <article class="step">
+            <span class="step-number">2</span>
+            <h3>Analisamos a documentação</h3>
+            <p>Avaliamos os registros municipais, certidões e plantas disponíveis para entender a viabilidade técnica.</p>
+          </article>
+          <article class="step">
+            <span class="step-number">3</span>
+            <h3>Você recebe a orientação</h3>
+            <p>Apresentamos os próximos passos seguros para regularizar seu imóvel de acordo com as normas vigentes.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -333,39 +380,51 @@
     <section id="duvidas" class="faq" aria-labelledby="faq-title">
       <div class="container">
         <span class="section-kicker">Dúvidas frequentes</span>
-        <h2 id="faq-title" class="section-title">Antes de começar, é normal ter dúvidas</h2>
+        <h2 id="faq-title" class="section-title">Esclareça suas dúvidas iniciais sobre regularização</h2>
         <div class="faq-grid">
-          <details><summary>Quanto custa regularizar um imóvel?</summary><p>O valor depende da situação do imóvel, da documentação, das exigências técnicas e das taxas aplicáveis. A análise inicial serve para entender o caso antes de apresentar uma proposta.</p></details>
-          <details><summary>Quanto tempo demora?</summary><p>O prazo varia conforme o tipo de serviço, a documentação disponível e os trâmites do órgão responsável. Não é seguro prometer um prazo sem avaliar o imóvel.</p></details>
-          <details><summary>Posso regularizar um imóvel sem habite-se?</summary><p>Em muitos casos há caminhos possíveis, mas é necessário avaliar o projeto, a situação da obra e as exigências municipais antes de confirmar a viabilidade.</p></details>
-          <details><summary>Atende terrenos e imóveis comerciais?</summary><p>Informe o tipo de imóvel no formulário ou no WhatsApp. A análise inicial permite verificar se o serviço é aplicável ao seu caso.</p></details>
+          <details>
+            <summary>Quanto custa regularizar uma obra ou imóvel?</summary>
+            <p>O custo depende da área construída, do tipo de pendência (Prefeitura, Receita ou Cartório), das taxas públicas e dos projetos necessários. A análise inicial serve exatamente para diagnosticar o caso antes de estimar custos.</p>
+          </details>
+          <details>
+            <summary>Quanto tempo leva o processo de regularização?</summary>
+            <p>O prazo varia conforme os trâmites dos órgãos públicos responsáveis e a complexidade do imóvel. Nenhum profissional sério promete prazos exatos sem antes estudar a documentação.</p>
+          </details>
+          <details>
+            <summary>Posso regularizar um imóvel que não tem Habite-se?</summary>
+            <p>Sim. Em muitos casos é possível obter o Habite-se ou aceite municipal realizando as adequações técnicas e apresentando o projeto de regularização correspondente.</p>
+          </details>
+          <details>
+            <summary>Vocês atendem terrenos, imóveis comerciais e rurais?</summary>
+            <p>Atendemos imóveis residenciais, comerciais e desdobros de lotes urbanos em Araras/SP e região. Fale pelo WhatsApp para verificar se o seu caso se enquadra na nossa área de atuação.</p>
+          </details>
         </div>
       </div>
     </section>
 
     <section id="contato" class="contact-band" aria-labelledby="contato-title">
       <div class="container">
-        <h2 id="contato-title" class="section-title">Fale diretamente com quem entende do processo</h2>
-        <p class="section-intro">Atendimento em Araras/SP. Você pode solicitar uma análise inicial ou iniciar a conversa pelo WhatsApp.</p>
+        <h2 id="contato-title" class="section-title">Pronto para entender como regularizar seu imóvel?</h2>
+        <p class="section-intro">Atendimento especializado em Araras/SP e região. Mais de 40 anos de experiência técnica para orientar você de forma clara e segura.</p>
         <div class="hero-actions">
-          <a class="button" href="#formulario">Solicitar análise inicial</a>
-          <a class="button secondary js-whatsapp" data-label="cta_final" href="https://wa.me/5519997959587?text=Ol%C3%A1%21%20Quero%20entender%20como%20regularizar%20meu%20im%C3%B3vel." target="_blank" rel="noopener">Falar no WhatsApp</a>
+          <a class="button js-whatsapp" data-label="cta_final_whatsapp" href="https://wa.me/5519997959587?text=Ol%C3%A1%21%20Preciso%20regularizar%20meu%20im%C3%B3vel%20em%20Araras%20e%20gostaria%20de%20contar%20meu%20caso." target="_blank" rel="noopener">Fale pelo WhatsApp e conte seu caso</a>
+          <a class="button secondary" href="#formulario">Preencher formulário</a>
         </div>
       </div>
     </section>
 
     <section id="privacidade" class="privacy" aria-labelledby="privacidade-title">
       <div class="container">
-        <span class="section-kicker">Privacidade</span>
-        <h2 id="privacidade-title" class="section-title">Como usamos seus dados de contato</h2>
-        <p>Usamos nome, WhatsApp, cidade e informações do pedido exclusivamente para responder à sua solicitação de análise/orçamento. Não envie documentos, matrícula do imóvel ou dados sensíveis neste primeiro contato. Para solicitar acesso, correção ou exclusão dos dados, entre em contato por <a href="mailto:contato@ccprojetos.com.br">contato@ccprojetos.com.br</a>.</p>
+        <span class="section-kicker">Privacidade e Transparência</span>
+        <h2 id="privacidade-title" class="section-title">Como tratamos seus dados de contato</h2>
+        <p>Utilizamos seu nome, WhatsApp, cidade e relato breve exclusivamente para dar retorno e orientar sobre sua solicitação. Não solicite o envio de documentos confidenciais ou matrícula neste primeiro contato. Para dúvidas sobre dados, entre em contato via e-mail em <a href="mailto:contato@ccprojetos.com.br">contato@ccprojetos.com.br</a>.</p>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container footer-inner">
-      <p>© 2026 CC Projetos — Regularização de Imóveis · CRT/SP: 01744181837</p>
+      <p>© 2026 CC Projetos — Regularização de Imóveis em Araras e Região · Técnico Habilitado</p>
       <div class="footer-links">
         <a href="mailto:contato@ccprojetos.com.br">E-mail</a>
         <a href="#privacidade">Privacidade</a>
@@ -554,7 +613,7 @@
           openWhatsApp(payload);
         } finally {
           button.disabled = false;
-          button.textContent = "Enviar solicitação";
+          button.textContent = "Enviar e abrir WhatsApp";
         }
         return;
       }
