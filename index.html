@@ -527,8 +527,11 @@
       const campaign = String((attribution || {}).utm_campaign || "").trim().toLowerCase();
       const content = String((attribution || {}).utm_content || "").trim().toLowerCase();
 
-      return source === "instagram" && medium === "profile" &&
-        (campaign === "link_in_bio" || content === "link_in_bio");
+      const isIgSource = source === "instagram" || source === "ig";
+      const isIgMedium = medium === "profile" || medium === "bio" || medium === "social" || !medium;
+      const isIgCampaign = campaign === "link_in_bio" || campaign === "perfil_organico" || content === "link_in_bio" || content === "perfil_organico" || !campaign;
+
+      return isIgSource && isIgMedium && isIgCampaign;
     }
 
     function getFormAttributionLines(attribution) {
@@ -544,7 +547,7 @@
     function createWhatsAppUrl(baseHref, attribution) {
       const url = new URL(baseHref, window.location.href);
       const baseMessage = url.searchParams.get("text") || "";
-      const attributionLines = getAttributionLines(attribution);
+      const attributionLines = getFormAttributionLines(attribution);
 
       if (attributionLines.length) {
         url.searchParams.set("text", [baseMessage].concat(attributionLines).filter(Boolean).join("\n"));
