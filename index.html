@@ -508,14 +508,37 @@
       return attribution;
     }
 
-    function getAttributionLines(attribution) {
+    function getAttributionLines(attribution, excludedKeys) {
+      const excluded = new Set(excludedKeys || []);
+
       return Object.entries(attribution || {})
         .filter(function ([key, value]) {
-          return value && (/^utm_/i.test(key) || ["gclid", "gbraid", "wbraid"].includes(key));
+          return !excluded.has(key) && value &&
+            (/^utm_/i.test(key) || ["gclid", "gbraid", "wbraid"].includes(key));
         })
         .map(function ([key, value]) {
           return "Origem " + key.toUpperCase() + ": " + value;
         });
+    }
+
+    function isInstagramProfileAttribution(attribution) {
+      const source = String((attribution || {}).utm_source || "").trim().toLowerCase();
+      const medium = String((attribution || {}).utm_medium || "").trim().toLowerCase();
+      const campaign = String((attribution || {}).utm_campaign || "").trim().toLowerCase();
+      const content = String((attribution || {}).utm_content || "").trim().toLowerCase();
+
+      return source === "instagram" && medium === "profile" &&
+        (campaign === "link_in_bio" || content === "link_in_bio");
+    }
+
+    function getFormAttributionLines(attribution) {
+      if (!isInstagramProfileAttribution(attribution)) {
+        return getAttributionLines(attribution);
+      }
+
+      return ["Como chegou até nós: Instagram — link do perfil"].concat(
+        getAttributionLines(attribution, ["utm_source", "utm_medium", "utm_campaign", "utm_content"])
+      );
     }
 
     function createWhatsAppUrl(baseHref, attribution) {
@@ -630,7 +653,7 @@
         "Cidade do imóvel: " + payload.cidade,
         "Serviço: " + payload.servico,
         payload.mensagem ? "Situação: " + payload.mensagem : ""
-      ].concat(getAttributionLines(payload)).filter(Boolean).join("\n");
+      ].concat(getFormAttributionLines(payload)).filter(Boolean).join("\n");
       track("whatsapp_form_redirect", { service: payload.servico });
       reportWhatsAppConversion(payload.lead_id);
       window.open("https://wa.me/5519997959587?text=" + encodeURIComponent(message), "_blank", "noopener");
