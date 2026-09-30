@@ -91,7 +91,8 @@
     .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
     .trust-list { display: flex; flex-wrap: wrap; gap: 15px 20px; margin: 27px 0 0; padding: 0; list-style: none; color: rgba(255,255,255,.92); font-size: 14px; font-weight: 700; }
     .trust-list li::before { content: "✓"; display: inline-grid; place-items: center; width: 18px; height: 18px; margin-right: 7px; border-radius: 50%; background: #69b77c; color: #0f5123; font-weight: 900; }
-    .lead-card { padding: 27px; border: 1px solid rgba(255,255,255,.28); border-radius: 18px; background: var(--white); color: var(--ink); box-shadow: var(--shadow); }
+    .lead-card { padding: 27px; border: 1px solid rgba(255,255,255,.28); border-radius: 18px; background: var(--white); color: var(--ink); box-shadow: var(--shadow); transition: transform .3s ease, box-shadow .3s ease; }
+    .lead-card.is-highlighted { transform: scale(1.02); box-shadow: 0 0 0 4px var(--orange), var(--shadow); }
     .lead-card h2 { font-size: 25px; }
     .lead-card > p { margin: 8px 0 20px; color: var(--muted); font-size: 15px; }
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; }
@@ -583,6 +584,21 @@
       if (event.isTrusted === false) return;
       track("phone_click", { placement: event.currentTarget.dataset.label || "phone_link" });
     }
+
+    document.querySelectorAll('a[href="#formulario"]').forEach(function (link) {
+      link.addEventListener("click", function (event) {
+        const target = document.getElementById("formulario");
+        const nameInput = document.getElementById("lead-name");
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "center" });
+          target.classList.add("is-highlighted");
+          setTimeout(function () { target.classList.remove("is-highlighted"); }, 1200);
+        }
+        if (nameInput) {
+          setTimeout(function () { nameInput.focus(); }, 150);
+        }
+      });
+    });
 
     document.querySelectorAll(".js-whatsapp").forEach(function (link) {
       link.addEventListener("click", handleWhatsAppClick);
