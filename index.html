@@ -155,6 +155,12 @@
     .service h3 { font-size: 20px; }
     .service p { margin: 0; color: var(--muted); font-size: 14px; }
     .service .button.ghost { margin-top: auto; }
+    .urgent-links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 18px 0 4px; }
+    .urgent-links span { width: 100%; font-size: 13px; font-weight: 800; color: var(--orange); text-transform: uppercase; letter-spacing: .05em; }
+    .urgent-links a { padding: 8px 14px; border: 2px solid var(--orange); border-radius: 999px; background: #fff6ee; color: #b85100; font-size: 14px; font-weight: 800; text-decoration: none; }
+    .urgent-links a:hover { background: var(--orange); color: #fff; }
+    .pain-card.urgente:target { box-shadow: 0 0 0 4px var(--orange), 0 10px 30px rgba(33,55,84,.08); }
+    .pain-card { scroll-margin-top: 90px; }
     .pain-paths { background: var(--white); }
     .pain-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 34px; }
     .pain-card { display: grid; align-content: start; gap: 12px; padding: 26px; border: 1px solid var(--border); border-top: 5px solid var(--blue); border-radius: 16px; background: linear-gradient(145deg, #fff, #f6f9fd); box-shadow: 0 10px 30px rgba(33,55,84,.08); }
@@ -284,6 +290,12 @@
             <a class="button js-whatsapp" data-label="hero_principal" href="https://wa.me/5519997959587?text=Ol%C3%A1%21%20Preciso%20regularizar%20uma%20obra%20ou%20im%C3%B3vel%20em%20Araras%20e%20gostaria%20de%20contar%20meu%20caso." target="_blank" rel="noopener">Fale pelo WhatsApp e conte seu caso</a>
             <a class="button secondary" href="#formulario">Solicitar análise por formulário</a>
           </div>
+          <div class="urgent-links" aria-label="Situações com prazo">
+            <span>Recebeu notificação ou tem prazo?</span>
+            <a href="#caso-receita">Notificação da Receita</a>
+            <a href="#caso-prefeitura">Notificação da Prefeitura</a>
+            <a href="#caso-clcb">CLCB vencido</a>
+          </div>
           <p class="quiz-link">Não sabe se o seu imóvel precisa regularizar? <a href="https://teste.ccprojetos.com.br/?c=LP" data-label="teste_imovel">Faça o teste grátis em 1 minuto</a></p>
           <ul class="trust-list">
             <li><a href="#avaliacoes">Nota 4,8 no Google (12 avaliações)</a></li>
@@ -350,19 +362,19 @@
         <h2 id="dores-title" class="section-title">O que está acontecendo com o seu imóvel?</h2>
         <p class="section-intro">Escolha a situação mais parecida com a sua e fale direto com Carlos Costa. Cada imóvel possui características e exigências próprias.</p>
         <div class="pain-grid">
-          <article class="pain-card urgente">
+          <article id="caso-receita" class="pain-card urgente">
             <span class="pain-badge">Tem prazo</span>
             <h3>Recebi notificação da Receita. O que faço?</h3>
             <p>Na maioria dos casos, a notificação trata do INSS da obra. Lemos o documento, conferimos o prazo e cuidamos do CNO (Cadastro Nacional de Obras), da aferição no SERO e da CND da obra (Certidão Negativa de Débitos).</p>
             <a class="button js-whatsapp" data-label="dor_receita" href="https://wa.me/5519997959587?text=Ol%C3%A1%21%20Recebi%20uma%20notifica%C3%A7%C3%A3o%20da%20Receita%20Federal%20sobre%20minha%20obra%20e%20preciso%20de%20orienta%C3%A7%C3%A3o." target="_blank" rel="noopener">Falar pelo WhatsApp <span>→</span></a>
           </article>
-          <article class="pain-card urgente">
+          <article id="caso-prefeitura" class="pain-card urgente">
             <span class="pain-badge">Tem prazo</span>
             <h3>A Prefeitura me notificou para apresentar o projeto</h3>
             <p>Não deixe o prazo passar. Fazemos o levantamento da construção, o projeto de regularização e o protocolo na Prefeitura de Araras.</p>
             <a class="button js-whatsapp" data-label="dor_prefeitura" href="https://wa.me/5519997959587?text=Ol%C3%A1%21%20A%20Prefeitura%20me%20notificou%20para%20apresentar%20o%20projeto%20da%20obra%20e%20preciso%20de%20ajuda." target="_blank" rel="noopener">Falar pelo WhatsApp <span>→</span></a>
           </article>
-          <article class="pain-card urgente">
+          <article id="caso-clcb" class="pain-card urgente">
             <span class="pain-badge">Tem prazo</span>
             <h3>Meu CLCB venceu</h3>
             <p>O CLCB (Certificado de Licença do Corpo de Bombeiros) vale para estabelecimentos de até 750 m². Cuidamos da renovação pelo Via Fácil Bombeiros, do enquadramento ao protocolo.</p>
